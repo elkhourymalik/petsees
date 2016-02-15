@@ -7,7 +7,7 @@
             <div class="card_link">
               <%= link_to(offer_path(offer)) do %>
                 <% if offer.photo.present? %>
-                  <%= image_tag offer.photo, height: 100, width: 100, crop: :fill, class:"offer_image"%>
+                  <%= cl_image_tag offer.photo, height: 100, width: 100, crop: :fill, class:"offer_image"%>
                 <% else %>
                   <%= image_tag "logo.png", height: 100, width: 100, crop: :fill, class:"offer_image"%>
                 <% end %>
