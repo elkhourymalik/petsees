@@ -23,14 +23,16 @@ class OrdersController < ApplicationController
       respond_to do |format|
       format.html { redirect_to offer_path(@offer), notice: 'Order was successfully booked.' }
       format.json { head :no_content }
+      end
     else
-      render :new, notice: 'Please, try again the booking.'
-    end
+      render :new
+
   end
+end
 
 # DELETE "offers/42/orders/25"
   def destroy
-    @order = order.find(params[:id])
+    @order = Order.find(params[:id])
     @order.destroy
     respond_to do |format|
       format.html { redirect_to root, notice: 'Order was successfully destroyed.' }
