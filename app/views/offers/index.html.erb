@@ -1,0 +1,31 @@
+<div class="bg-lighter-grey">
+  <div class="container">
+    <div class="row">
+      <% @offers.each do |offer| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card_offer">
+            <div class="card_link">
+              <%= link_to(offer_path(offer)) do %>
+                <% if offer.photo.present? %>
+                  <%= image_tag offer.photo, height: 100, width: 100, crop: :fill, class:"offer_image"%>
+                <% else %>
+                  <%= image_tag "logo.png", height: 100, width: 100, crop: :fill, class:"offer_image"%>
+                <% end %>
+              <% end %>
+            </div>
+            <h2 class="offer_title"><%= offer.title %></h2>
+            <% if offer.user == current_user %>
+              <%= link_to(edit_offer_path(offer)) do %>
+                <i class="fa fa-pencil offer_edit"></i>
+              <% end %>
+              <%= link_to(offer_path(offer), method: :delete, data: {confirm: "Are you sure?"}) do %>
+                <i class="fa fa-trash-o offer_delete"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
