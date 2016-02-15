@@ -11,7 +11,7 @@
             <%= f.input :place_type, label: false, placeholder: "Place Type" %>
             <%= f.input :category, label: false, placeholder: "Category" %>
             <%= f.input :price, label: false, placeholder: "Price" %>
-            <%= f.input :photo, label: false, placeholder: "Image" %>
+            <%= f.input :photo, as: :attachinary, label: false %>
 
             <%= f.button :submit, class: "btn btn-primary" %>
           <% end %>
