@@ -1,7 +1,7 @@
 # First get up to date
 $ git checkout master        # Go back to master branch
 $ git pull origin master     # Fetch latest version
-$ git sweep                  # Get rid of merged branches (Download)[http://lab.arc90.com/2012/04/03/git-sweep/]
+$ git sweep                  # Get rid of merged branches
 $ bundle install             # Maybe the guys changed the Gemfile :)
 
 # Open another terminal, and create a branch to work in
