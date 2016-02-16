@@ -1,0 +1,5 @@
+<%= simple_form_for [@user] do |f| %>
+<%= f.input :email, placeholder: "jane.doe@example.com" %>
+<%= f.button :submit, class: "btn btn_primary" %>
+<% end %>
+<%= link_to new_user_registration_path %>

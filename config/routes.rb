@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'pages#home'
+  get 'about' => "pages#about"
+  get 'story' => "pages#story"
   resources :offers do
     resources :orders
   end
