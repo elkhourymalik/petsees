@@ -27,7 +27,7 @@
             <% end %>
           );">
           <%= link_to(offer_path(offer)) do %>
-            <h2 class="offer_title"><%= offer.title %></h2>
+            <h2 class="offer_main_title"><%= offer.title %></h2>
           <% end %>
 
           <% if offer.owner == current_user %>
