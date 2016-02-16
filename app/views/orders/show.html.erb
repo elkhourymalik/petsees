@@ -1,14 +1,17 @@
-<div class="bg-lighter-grey">
-  <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="card_order">
-            <div class="card_link">
-              <h3>Booking #<%= @order.id%> - <%= link_to @order.offer.title, offer_path%></h3>
+<div class= "text-center">
+  <h1> See all your orders</h1>
+    <div class="bg-lighter-grey">
+      <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="card_order">
+                <div class="card_link">
+                  <h3>Booking #<%= @order.id%> - <%= link_to @order.offer.title, offer_path%></h3>
 
-            </div>
-          </div>
-          </div>
+                </div>
+              </div>
+              </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
