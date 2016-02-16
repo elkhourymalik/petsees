@@ -11,7 +11,7 @@
             <%= f.input :place_type, label: false, collection: Offer::PLACES, prompt: "Select a place type" %>
             <%= f.input :category, label: false, collection: Offer::CATEGORIES, prompt: "Select category" %>
             <%= f.input :price, label: false, placeholder: "Price" %>
-            <%= f.input :photo, as: :attachinary, label: false %>
+            <%# f.input :photo, as: :attachinary, label: false %>
             <%= f.button :submit, class: "btn btn-primary" %>
           <% end %>
         </div>

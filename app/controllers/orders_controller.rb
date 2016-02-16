@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
 
   # GET "orders/42"
   def show
-    @order = Order.find(params[:id])
   end
 
 # GET "offers/42/orders/new"
@@ -19,6 +18,7 @@ class OrdersController < ApplicationController
 # POST "offers/42/orders"
   def create
   @order = @offer.orders.build(order_params)
+  @order.renter = current_user
     if  @order.save
       respond_to do |format|
       format.html { redirect_to offer_path(@offer), notice: 'Order was successfully booked.' }

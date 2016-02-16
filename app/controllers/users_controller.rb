@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   # end
 
  def show
-    @annonces = @user.offers
+    @petsing = @user.orders
+
   end
 
   # def new
