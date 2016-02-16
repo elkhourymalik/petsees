@@ -36,3 +36,56 @@
   background-color: white;
   height: 200px;
 }
+.card_offer{
+  position: relative;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: $green;
+  height: 200px;
+  min-width: 300px;
+}
+.offer_edit{
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  color: #CCCCCC;
+}
+.offer_delete{
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  color: #CCCCCC;
+}
+.offer_image{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 5px;
+}
+.offer_title{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #CCCCCC;
+  margin: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
