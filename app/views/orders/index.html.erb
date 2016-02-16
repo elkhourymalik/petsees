@@ -6,7 +6,7 @@
           <div class="card_order">
             <div class="card_link">
               <h3>Booking #<%= order.id%> - <%= link_to order.offer.title, offer_order_path(order.id, order.offer.id) %> </h3>
-              <h4> Petsitter:<%= order.user.first_name%></h4>
+              <h4> Petsitter:<%= @offer.owner.first_name%></h4>
             <% end %>
           </div>
         </div>

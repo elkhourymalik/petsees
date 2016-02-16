@@ -14,7 +14,7 @@
               <% end %>
             </div>
             <h2 class="offer_title"><%= offer.title %></h2>
-            <% if offer.user == current_user %>
+            <% if offer.owner == current_user %>
               <%= link_to(edit_offer_path(offer)) do %>
                 <i class="fa fa-pencil offer_edit"></i>
               <% end %>

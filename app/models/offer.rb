@@ -1,6 +1,6 @@
 class Offer < ActiveRecord::Base
   has_many :orders
-  belongs_to :user
+  belongs_to :owner, foreign_key: "user_id", class_name: "User"
   has_attachment :photo
   CATEGORIES = ["Dog", "Cat", "Fish"]
   PLACES = ["Apartment", "Garden", "Farm"]
