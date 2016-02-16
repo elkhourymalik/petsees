@@ -81,25 +81,6 @@
 
       </div>
 
-    <!-- <div class="block1">
-      <div class = "container">
-        <div class ="row">
-          <div class="col-xs-12">
-            <div id="newsletter" class="text-center paddedtop">
-              <h2>Join us!</h2>
-              <p>Register and book a pet sitting</p>
-              <form class="form-inline">
-                <div class="form-group">
-                  <label for="exampleInputEmail2">Email</label>
-                  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-                  <button type="submit" class="btn btn-primary">sign in</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
 
       <div class="block1">
         <div class = "container">
@@ -115,7 +96,7 @@
 
 
       <div class="block2">
-        <p>If you want to contact us, we'll be happy to read your <a href="https://www.lewagon.com/programme" target="_blank">message</a>. Whant to know better about us? Let's read our <a href="https://www.lewagon.com/programme" target="_blank">story</a></p>
+        <p>If you want to contact us, we'll be happy to read your <%= link_to about_path do %>message<%end%>. Whant to know better about us? Let's read our <%= link_to story_path do %>story<%end%></p>
       </div>
 
       <div class="block3">
