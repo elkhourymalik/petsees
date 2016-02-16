@@ -8,23 +8,23 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
+<!--     <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search for a sitter">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
-    </form>
+    </form> -->
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+<!--       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="badge badge-blue">3</div>
         </div>
-      <% end %>
+      <% end %> -->
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -37,7 +37,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to order_offer_path(order.current_user_id, order.offer.current_user_id) do %>
+              <%= link_to "#" do %>
                 <i class="fa fa-home"></i>  <%= t ".profile", default: "My bookings" %>
               <% end %>
             </li>
@@ -67,9 +67,30 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to user_path(current_user.id) do %>
+              <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-home"></i>  <%= t ".profile", default: "My bookings" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to t(".top_call_to_action", default: "Add an annonce"), new_offer_path %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

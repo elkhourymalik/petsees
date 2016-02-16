@@ -4,7 +4,7 @@
       <h1> Welcome on Petsees!</h1>
       <div class="banner">
         <div class="banner-content">
-          <a class="btn btn-primary btn-lg">Find a sitter for your pets <%= link_to %> </a>
+          <%= link_to "Find a sitter for your pets", offers_path, class:"btn btn-primary btn-lg" %>
         </div>
       </div>
 
@@ -14,29 +14,35 @@
           <div class="row">
 
             <div class="col-xs-12 col-sm-6 col-md-3">
-              <%= image_tag "plane.png" %>
-              <h2>Mobile</h2>
-              <p>Find a sitter for your beloving pets any time and anywhere</p>
+              <div class="white_card">
+                <%= image_tag "plane.png" %>
+                <h2>Mobile</h2>
+                <p>Find a sitter for your beloving pets any time and anywhere</p>
+              </div>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3">
-              <%= image_tag "Key.png" %>
-              <h2>Free minded</h2>
-              <p>No need to consign your home's keys</p>
+              <div class="white_card">
+                <%= image_tag "Key.png" %>
+                <h2>Free minded</h2>
+                <p>No need to consign your home's keys</p>
+              </div>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3">
-              <%= image_tag "Good.png" %>
-
-              <h2>Confident</h2>
-
-              <p>Discover pet's sitters approuved by our community</p>
+              <div class="white_card">
+                <%= image_tag "Good.png" %>
+                <h2>Confident</h2>
+                <p>Discover pet's sitters approuved by our community</p>
+              </div>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-3">
-              <%= image_tag "Heart.png" %>
-              <h2>Friendly</h2>
-              <p>Join a community of pets lovers, just like you</p>
+              <div class="white_card">
+                <%= image_tag "Heart.png" %>
+                <h2>Friendly</h2>
+                <p>Join a community of pets lovers, just like you</p>
+              </div>
             </div>
           </div>
         </div>
