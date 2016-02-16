@@ -17,33 +17,34 @@
           <% end %>
         <% end %>
       </div>
-      <% @offers.each do |offer| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card_offer">
-            <div class="card_link">
-              <%= link_to(offer_path(offer)) do %>
-                <% if offer.photo.present? %>
-                  <%= cl_image_tag offer.photo.path, height: 100, width: 100, crop: :fill, class:"offer_image"%>
-                <% else %>
-                  <%= image_tag "chat.png", height: 100, width: 100, crop: :fill, class:"offer_image"%>
-                <% end %>
-              <% end %>
-            </div>
-            <h2 class="offer_title"><%= offer.title %></h2>
-            <% if offer.owner == current_user %>
-              <%= link_to(edit_offer_path(offer)) do %>
-                <i class="fa fa-pencil offer_edit"></i>
-              <% end %>
-              <%= link_to(offer_path(offer), method: :delete, data: {confirm: "Are you sure?"}) do %>
-                <i class="fa fa-trash-o offer_delete"></i>
-              <% end %>
+      <div class="col-xs-12 col-sm-4">
+        <% @offers.each do |offer| %>
+          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
+            <% if offer.photo.present? %>
+              <%='http://res.cloudinary.com/doosfknzw/image/upload/' + offer.photo.path %>
+            <% else %>
+              <%='http://res.cloudinary.com/doosfknzw/image/upload/' + offer.photo.path %>
             <% end %>
-          </div>
-        </div>
-      <% end %>
+          );">
+          <%= link_to(offer_path(offer)) do %>
+            <h2 class="offer_title"><%= offer.title %></h2>
+          <% end %>
 
+          <% if offer.owner == current_user %>
+            <%= link_to(edit_offer_path(offer)) do %>
+              <i class="fa fa-pencil offer_edit"></i>
+            <% end %>
+            <%= link_to(offer_path(offer), method: :delete, data: {confirm: "Are you sure?"}) do %>
+              <i class="fa fa-trash-o offer_delete"></i>
+            <% end %>
+          <% end %>
+
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
 
 
