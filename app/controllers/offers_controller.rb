@@ -2,9 +2,16 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   def index
     @offers = Offer.all
+    @markers = Gmaps4rails.build_markers(@offers) do |offer, marker|
+      marker.lat offer.latitude
+      marker.lng offer.longitude
+      marker.infowindow render_to_string(:partial => "/offers/map_box", locals: {offer: offer})
+    end
   end
 
   def show
+    @alert_message = "You are viewing #{@offer.title}"
+    @offer_coordinates = { lat: @offer.latitude, lng: @offer.longitude }
   end
 
   def new
