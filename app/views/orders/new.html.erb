@@ -1,0 +1,9 @@
+
+      <div class="box-form">
+        <%= simple_form_for [@offer, @order] do |f| %>
+          <%= f.input :user_id %>
+          <%= f.input :offer_id %>
+
+          <%= f.button :submit, "Add Booking", class: "btn btn-primary" %>
+        <% end %>
+      </div>
