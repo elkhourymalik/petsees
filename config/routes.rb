@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'pages#home'
+  get 'about' => "pages#about"
+  get 'story' => "pages#story"
   resources :offers do
     resources :orders
   end
+  resources :users, :only => [:show]
+
   mount Attachinary::Engine => "/attachinary"
 
   # The priority is based upon order of creation: first created -> highest priority.
