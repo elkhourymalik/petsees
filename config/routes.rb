@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :offers do
     resources :orders
   end
+  resources :users, :only => [:show]
+
   mount Attachinary::Engine => "/attachinary"
 
   # The priority is based upon order of creation: first created -> highest priority.
