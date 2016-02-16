@@ -9,7 +9,7 @@
             <% if @offer.photo.present? %>
               <%= cl_image_tag @offer.photo.path, height: 300, width: 300, crop: :fill %>
             <% else %>
-              <%= image_tag "chat.png", height: 300, width: 300, crop: :fill %>
+              <%= image_tag "chat.png", height: 100, width: 100, crop: :fill %>
             <% end %>
           </div>
         </div>
