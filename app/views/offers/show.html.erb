@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="box">
+          <%= link_to "See all offers", offers_path %>
           <h2><%= @offer.title %></h2>
           <div class="offer_photo">
             <% if @offer.photo.present? %>
