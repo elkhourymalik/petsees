@@ -6,22 +6,10 @@
 <div class="wrapper-light-green text-center padded marged">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <%= link_to edit_user_registration_path do %>
-          <h2>Edit Your personnal informations</h2>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="wrapper-light-green text-center padded marged">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>Your offer of Petsitting</h2>
+      <div class="col-xs-12 col-md-6">
+        <h2 class="padded-down">Your offer of Petsitting</h2>
         <% @user.offers.each do |offer|%>
-        <div class="col-xs-12 col-sm-4">
+        <div>
 
             <div class="card_main_index" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
               <% if offer.photo.present? %>
@@ -49,16 +37,10 @@
         </div>
       <%end %>
       </div>
-    </div>
-  </div>
-</div>
-<div class="wrapper-light-green text-center padded marged">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>The Petsitting you boooked</h2>
+      <div class="col-xs-12 col-md-6">
+        <h2 class="padded-down">The Petsitting you boooked</h2>
         <% @user.orders.each do |order|%>
-          <div class="col-xs-12 col-sm-4">
+          <div>
 
               <div class="card_main_index" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
                 <% if order.offer.photo.present? %>
@@ -80,17 +62,11 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="container">
-  <div class="row wrapper-light-green padded-xsmall">
-    <div class="padded-xsmall"></div>
-    <div class="col-xs-12  padded">
-      <h2>Your personnal informations</h2>
-        <%= link_to edit_user_registration_path do %>
-        <i class="fa fa-pencil"></i>
-        <% end %>
-      </div>
-    </div> -->
+<div class="text-center">
+  <%= link_to edit_user_registration_path do %>
+    <p>Edit Your personnal informations <i class="fa fa-pencil"></i></p>
+  <% end %>
+</div>
 
 
 

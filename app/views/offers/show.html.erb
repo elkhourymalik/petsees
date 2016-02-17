@@ -37,15 +37,22 @@
         </div>
         <div class="padded-small">
           <ul class="list-inline">
+            <% current_user.offers.each do |offer| %>
+              <% unless current_user.offers.include? offer %>
+                <li>
+                  <%= link_to "Back", offers_path, class: "btn btn-success" %>
+                </li>
+                <li>
+                  <%= simple_form_for [@offer, @order] do |f| %>
+                    <%= f.input :user_id, as: :hidden, value: current_user.id %>
+                    <%= f.input :offer_id, as: :hidden, value: @offer.id %>
+                    <%= f.submit "Book this offer", class: "btn btn-success" %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
             <li>
               <%= link_to "Back", offers_path, class: "btn btn-success" %>
-            </li>
-            <li>
-              <%= simple_form_for [@offer, @order] do |f| %>
-                <%= f.input :user_id, as: :hidden, value: current_user.id %>
-                <%= f.input :offer_id, as: :hidden, value: @offer.id %>
-                <%= f.submit "Book this offer", class: "btn btn-success" %>
-              <% end %>
             </li>
           </ul>
         </div>
