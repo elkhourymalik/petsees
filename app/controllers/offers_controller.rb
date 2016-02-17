@@ -12,6 +12,7 @@ class OffersController < ApplicationController
   def show
     @alert_message = "You are viewing #{@offer.title}"
     @offer_coordinates = { lat: @offer.latitude, lng: @offer.longitude }
+    @order = Order.new
   end
 
   def new
