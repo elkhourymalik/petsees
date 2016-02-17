@@ -1,15 +1,14 @@
 
 
     <div class= "text-center">
-      <h1> Welcome on Petsees!</h1>
       <div class="banner">
-        <div class="banner-content">
-         <%= link_to "Find a sitter for your pets", offers_path, class: "btn btn-primary btn-lg"%>
-        </div>
+        <h1 id="main_page_title">Welcome Pet Lovers!</h1>
+        <%= link_to "Find a sitter for your pets", offers_path, class: "btn btn-primary btn-lg"%>
       </div>
 
 
-      <div class="text-center padded features">
+
+      <div class="text-center padded-big features">
         <div class="container">
           <div class="row">
 
@@ -48,72 +47,56 @@
         </div>
       </div>
 
+      <div class="wrapper-light-green padded">
+        <h2 class="text-center">Some of our pet sitters</h2>
 
-<h2 class="text-center">Your pet's sitter</h2>
-
-      <div class="wrapper-grey padded">
-        <div class = "container">
-          <div class ="row">
-            <div class="col-xs-12 col-sm-4">
-              <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_url('normandy.jpg') %>');">
-                <div class="card-category">Normandy</div>
-                <div class="card-description">
-                  <h2>Clementine</h2>
-                  <p>Lovely big farm in normandy</p>
+        <div class="padded">
+          <div class = "container">
+            <div class ="row">
+              <div class="col-xs-12 col-sm-4">
+                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_url('normandy.jpg') %>');">
+                  <div class="card-category">Normandy</div>
+                  <div class="card-description">
+                    <h2>Clementine</h2>
+                    <p>Lovely big farm in normandy</p>
+                  </div>
+                  <%= link_to "", offers_path, class: "card-link" %>
                 </div>
-                <%= link_to "", offers_path, class: "card-link" %>
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_url('paris.jpg') %>');">
-                <div class="card-category">Paris</div>
-                <div class="card-description">
-                  <h2>Malik</h2>
-                  <p>Hudge flat in Paris</p>
+              <div class="col-xs-12 col-sm-4">
+                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_url('paris.jpg') %>');">
+                  <div class="card-category">Paris</div>
+                  <div class="card-description">
+                    <h2>Malik</h2>
+                    <p>Hudge flat in Paris</p>
+                  </div>
+                  <%= link_to "", offers_path, class: "card-link" %>
                 </div>
-                <%= link_to "", offers_path, class: "card-link" %>
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_url('london.jpg') %>');">
-                <div class="card-category">London</div>
-                <div class="card-description">
-                  <h2>Laure</h2>
-                  <p>House central London</p>
+              <div class="col-xs-12 col-sm-4">
+                <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_url('london.jpg') %>');">
+                  <div class="card-category">London</div>
+                  <div class="card-description">
+                    <h2>Laure</h2>
+                    <p>House central London</p>
+                  </div>
+                  <%= link_to "", offers_path, class: "card-link" %>
                 </div>
-                <%= link_to "", offers_path, class: "card-link" %>
               </div>
             </div>
           </div>
         </div>
 
-      </div>
 
-
-      <div class="block1">
-        <div class = "container">
-          <div class ="row">
-            <div class="col-xs-12">
-              <h2> Join us ! </h2>
-              <%= link_to "Sign Up", edit_user_registration_path, class: "btn btn-primary"%>
+        <div class="block1">
+          <div class = "container">
+            <div class ="row">
+              <div class="col-xs-12">
+                <h2> Join us ! </h2>
+                <%= link_to "Sign Up", new_user_session_path, class: "btn btn-primary"%>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-
-
-      <div class="block2">
-        <p>If you want to contact us, we'll be happy to read your <%= link_to about_path do %>message<%end%>. Whant to know better about us? Let's read our <%= link_to story_path do %>story<%end%></p>
-      </div>
-
-      <div class="block3">
-        <ul class="list-inline">
-          <li>
-            <a href="" target="_blank"> <i class="fa fa-twitter"></i> Follow us on Twitter</a>
-          </li>
-          <li>
-            <a href="" target="_blank"><i class="fa fa-facebook"></i> See our Facebook's page</a>
-          </li>
-        </ul>
-      </div>
