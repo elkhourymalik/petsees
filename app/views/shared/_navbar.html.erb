@@ -29,6 +29,11 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
+
+          <%= link_to t(".top_call_to_action", default: "See all our pet sitters"), offers_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
+          <%= link_to t(".top_call_to_action", default: "Add an annonce"), new_offer_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
           <% if current_user.picture? %>
             <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
@@ -60,11 +65,6 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% end %>
-
-
-    <%= link_to t(".top_call_to_action", default: "Add an annonce"), new_offer_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
-    <%= link_to t(".top_call_to_action", default: "See all our pet sitters"), offers_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
   </div>
 
@@ -102,4 +102,3 @@
     </div>
   </div>
 </div>
-
