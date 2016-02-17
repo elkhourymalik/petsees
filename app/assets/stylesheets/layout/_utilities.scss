@@ -10,6 +10,16 @@
   padding-bottom: 5em;
 }
 
+.padded-small {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.padded-xsmall {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -22,4 +32,16 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+.wrapper-light-green {
+  background-color: #F0FFD9;
+  box-shadow: 1px 1px 3px #F0F0F0;
+  position: relative;
+}
+
+.wrapper-black {
+background-color: #070707;
+color: white;
+text-align: center;
 }
