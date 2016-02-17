@@ -8,13 +8,26 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="box">
           <%= link_to "See all offers", offers_path %>
-          <h2><%= @offer.title %></h2>
-          <div class="offer_photo">
+          <div class="card_main_show" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
             <% if @offer.photo.present? %>
-              <%= cl_image_tag @offer.photo.path, height: 300, width: 300, crop: :fill %>
+              <%='http://res.cloudinary.com/doosfknzw/image/upload/' + @offer.photo.path %>
             <% else %>
-              <%= image_tag "chat.png", height: 100, width: 100, crop: :fill %>
+              'http://static1.businessinsider.com/image/5588455c69bedd63541b9b5b-1200/wong-wanted-to-help-seibel-make-the-apartment-feel-more-inviting-we-tempered-the-architecture-finishes-of-the-loft-with-softer-furnishings-and-materials-he-told-business-insider-we-blended-their-love-of-reclaimed-wood-and-metal-with-shag-rugs-quilted-chairs-leather-and-velvet.jpg'
             <% end %>
+          );">
+            <h2 class="offer_main_title"><%= @offer.title %></h2>
+            <p class="offer_main_price"><%= @offer.price %>‎ € / day</p>
+            <p class="offer_main_category"><%= @offer.category %>‎ sitting</p>
+
+            <% if @offer.owner == current_user %>
+              <%= link_to(edit_offer_path(@offer)) do %>
+                <i class="fa fa-pencil offer_edit"></i>
+              <% end %>
+              <%= link_to(offer_path(@offer), method: :delete, data: {confirm: "Are you sure?"}) do %>
+                <i class="fa fa-trash-o offer_delete"></i>
+              <% end %>
+            <% end %>
+
            <%# link_to "Book this offer", new_offer_order_path(@offer.id) %>
            <%= simple_form_for [@offer, @order] do |f| %>
             <%= f.input :user_id, as: :hidden, value: current_user.id %>
@@ -24,6 +37,10 @@
 
           </div>
         </div>
+        <div class="main_description">
+          <p><%= @offer.description %>‎</p>
+        </div>
+        <%= link_to "Request Booking", "#" %>
       </div>
     </div>
   </div>
