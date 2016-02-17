@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :find_offer, only: [ :new, :create, :index, :show, :destroy]
+  before_action :find_offer, only: [ :new, :create]
 
  # GET "orders"
   def index
@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   # GET "orders/42"
   def show
+    @order = Order.find(params[:id])
   end
 
 # GET "offers/42/orders/new"
@@ -20,10 +21,7 @@ class OrdersController < ApplicationController
   @order = @offer.orders.build(order_params)
   @order.renter = current_user
     if  @order.save
-      respond_to do |format|
-      format.html { redirect_to offer_path(@offer), notice: 'Order was successfully booked.' }
-      format.json { head :no_content }
-      end
+      redirect_to order_path(@order)
     else
       render :new
 
