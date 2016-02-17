@@ -7,7 +7,7 @@
           <%= simple_form_for @offer do |f| %>
             <%= f.input :title, label: false, placeholder: "Title" %>
             <%= f.input :description, label: false, placeholder: "Description" %>
-            <%= f.input :address, label: false, placeholder: "Address" %>
+            <%= f.input :address, label: false, placeholder: "Start typing your address...", input_html: {id: "user_input_autocomplete_address"} %>
             <%= f.input :place_type, label: false, collection: Offer::PLACES, prompt: "Select place type" %>
             <%= f.input :category, label: false, collection: Offer::CATEGORIES, prompt: "Select category" %>
             <%= f.input :price, label: false, placeholder: "Price" %>
