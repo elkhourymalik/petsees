@@ -11,6 +11,12 @@
             <% else %>
               <%= image_tag "chat.png", height: 100, width: 100, crop: :fill %>
             <% end %>
+           <%# link_to "Book this offer", new_offer_order_path(@offer.id) %>
+           <%= simple_form_for [@offer, @order] do |f| %>
+            <%= f.input :user_id, as: :hidden, value: current_user.id %>
+            <%= f.input :offer_id, as: :hidden, value: @offer.id %>
+            <%= f.submit "Book this offer" %>
+           <% end %>
           </div>
         </div>
       </div>

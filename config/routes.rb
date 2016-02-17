@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'story' => "pages#story"
 
   resources :offers do
-    resources :orders
+    resources :orders, only: [:new, :create]
   end
+
+  resources :orders, except: [:new, :create]
 
   resources :users, :only => [:show]
 
