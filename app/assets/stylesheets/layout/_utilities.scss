@@ -38,10 +38,14 @@
   background-color: #F0FFD9;
   box-shadow: 1px 1px 3px #F0F0F0;
   position: relative;
+  border-width: 1px 2px 3px 2px;
+  border-style: solid dotted;
+  border-color: #D1DDBC;
+  padding: 0 10px;
 }
 
 .wrapper-black {
-background-color: #070707;
-color: white;
-text-align: center;
+  background-color: #070707;
+  color: white;
+  text-align: center;
 }

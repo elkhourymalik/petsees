@@ -1,40 +1,57 @@
-  <div class="wrapper-black padded-small">
-    <h1>Your Dashboard</h1>
-  </div>
+<div class="wrapper-black padded-small">
+  <h1>Your Dashboard</h1>
+</div>
 
-    <div class="container">
-      <div class="row">
-
-<div class="padded-xsmall"></div>
-
-        <div class="col-xs-12 wrapper-light-green padded-xsmall">
-          <h2>>> Your personnal informations
-            <%= link_to edit_user_registration_path do %>
-              <i class="fa fa-pencil"></i>
-              <% end %>
-            <%= link_to edit_user_registration_path, method: :delete, data: {confirm: "Are you sure?"} do %>
-              <i class="fa fa-trash-o"></i>
-              <% end %></h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 padded-xsmall">
-          <h2>>> Your offer of Petsitting</h2>
-            <% @user.offers.each do |offer|%>
-            <p><%= offer.title %></p>
-          <%end %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 wrapper-light-green padded-xsmall">
-          <h2>>> The Petsitting you boooked</h2>
-            <% @user.orders.each do |order|%>
-             <p><%= order.offer.title %></p>
-            <%end %>
-        </div>
+<div class="container">
+  <div class="row padded-xsmall">
+    <div class="padded-xsmall"></div>
+    <div class="col-xs-12 wrapper-light-green padded-xsmall">
+      <h2>>> Your personnal informations
+        <%= link_to edit_user_registration_path do %>
+        <i class="fa fa-pencil"></i>
+        <% end %>
+        <%= link_to edit_user_registration_path, method: :delete, data: {confirm: "Are you sure?"} do %>
+        <i class="fa fa-trash-o"></i>
+        <% end %></h2>
       </div>
     </div>
 
-</div
+    <div class="row padded-xsmall">
+      <div class="col-xs-12 wrapper-light-green padded-xsmall">
+        <h2>>> Your offer of Petsitting</h2>
+        <% @user.offers.each do |offer|%>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
+          <% if offer.photo.present? %>
+          <%='http://res.cloudinary.com/doosfknzw/image/upload/' + offer.photo.path %>
+          <% else %>
+          'http://static1.businessinsider.com/image/5588455c69bedd63541b9b5b-1200/wong-wanted-to-help-seibel-make-the-apartment-feel-more-inviting-we-tempered-the-architecture-finishes-of-the-loft-with-softer-furnishings-and-materials-he-told-business-insider-we-blended-their-love-of-reclaimed-wood-and-metal-with-shag-rugs-quilted-chairs-leather-and-velvet.jpg'
+          <% end %>
+          );">
+          <p> <%= offer.title %></p>
+          </div>
+        </div>
+      <%end %>
+      </div>
+    </div>
+
+    <div class="row padded-xsmall">
+      <div class="col-xs-12 wrapper-light-green padded-xsmall">
+        <h2>>> The Petsitting you boooked</h2>
+        <% @user.orders.each do |order|%>
+        <div class="col-xs-12 col-sm-4">
+
+          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
+          <% if order.offer.photo.present? %>
+          <%='http://res.cloudinary.com/doosfknzw/image/upload/' + order.offer.photo.path %>
+          <% else %>
+          'http://static1.businessinsider.com/image/5588455c69bedd63541b9b5b-1200/wong-wanted-to-help-seibel-make-the-apartment-feel-more-inviting-we-tempered-the-architecture-finishes-of-the-loft-with-softer-furnishings-and-materials-he-told-business-insider-we-blended-their-love-of-reclaimed-wood-and-metal-with-shag-rugs-quilted-chairs-leather-and-velvet.jpg'
+          <% end %>
+          );">
+          <p> <%= order.offer.title %></p>
+        </div>
+      </div>
+      <%end %>
+    </div>
+
+</div>
