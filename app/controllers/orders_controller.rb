@@ -21,8 +21,9 @@ class OrdersController < ApplicationController
   @order = @offer.orders.build(order_params)
   @order.renter = current_user
     if  @order.save
-      redirect_to order_path(@order)
+      redirect_to user_path(current_user.id), notice: 'Successfully booked'
     else
+
       render :new
 
   end

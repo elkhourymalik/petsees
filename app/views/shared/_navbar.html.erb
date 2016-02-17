@@ -3,6 +3,7 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "chat.png" %>
   <% end %>
+  <h1 id="title-in-navbar">Petsees</h1>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -30,10 +31,6 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
 
-          <%= link_to t(".top_call_to_action", default: "See all our pet sitters"), offers_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
-          <%= link_to t(".top_call_to_action", default: "Add an annonce"), new_offer_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
           <% if current_user.picture? %>
             <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
@@ -46,8 +43,13 @@
               <% end %>
             </li>
             <li>
+              <%= link_to new_offer_path do %>
+                <i class="fa fa-bookmark"></i>  <%= t ".profile", default: "Offer a pet sitting" %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to offers_path do %>
-                <i class="fa fa-home"></i>  <%= t ".profile", default: "All our pet sitters" %>
+                <i class="fa fa-paw"></i>  <%= t ".profile", default: "Book a pet sitter" %>
               <% end %>
             </li>
             <li>
@@ -81,12 +83,14 @@
             <% end %>
           </li>
           <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-home"></i>  <%= t ".profile", default: "My bookings" %>
+            <%= link_to new_offer_path do %>
+              <i class="fa fa-bookmark"></i>  <%= t ".profile", default: "Offer a pet sitting" %>
             <% end %>
           </li>
           <li>
-            <%= link_to t(".top_call_to_action", default: "Add an annonce"), new_offer_path %>
+            <%= link_to offers_path do %>
+              <i class="fa fa-paw"></i>  <%= t ".profile", default: "Book a pet sitter" %>
+            <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>

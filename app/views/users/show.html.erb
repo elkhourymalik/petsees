@@ -1,62 +1,97 @@
-<div class="wrapper-black padded-small">
+<div class="padded-small text-center">
   <h1>Your Dashboard</h1>
 </div>
 
-<div class="container">
-  <div class="row padded-xsmall">
+
+<div class="wrapper-light-green text-center padded marged">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= link_to edit_user_registration_path do %>
+          <h2>Edit Your personnal informations</h2>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper-light-green text-center padded marged">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Your offer of Petsitting</h2>
+        <% @user.offers.each do |offer|%>
+        <div class="col-xs-12 col-sm-4">
+
+            <div class="card_main_index" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
+              <% if offer.photo.present? %>
+                <%='http://res.cloudinary.com/doosfknzw/image/upload/' + offer.photo.path %>
+              <% else %>
+                'http://static1.businessinsider.com/image/5588455c69bedd63541b9b5b-1200/wong-wanted-to-help-seibel-make-the-apartment-feel-more-inviting-we-tempered-the-architecture-finishes-of-the-loft-with-softer-furnishings-and-materials-he-told-business-insider-we-blended-their-love-of-reclaimed-wood-and-metal-with-shag-rugs-quilted-chairs-leather-and-velvet.jpg'
+              <% end %>
+            );">
+            <%= link_to(offer_path(offer)) do %>
+              <h2 class="offer_main_title"><%= offer.title %></h2>
+            <% end %>
+            <p class="offer_main_price"><%= offer.price %>‎ € / day</p>
+            <p class="offer_main_category"><%= offer.category %>‎ sitting</p>
+
+            <% if offer.owner == current_user %>
+              <%= link_to(edit_offer_path(offer)) do %>
+                <i class="fa fa-pencil offer_edit"></i>
+              <% end %>
+              <%= link_to(offer_path(offer), method: :delete, data: {confirm: "Are you sure?"}) do %>
+                <i class="fa fa-trash-o offer_delete"></i>
+              <% end %>
+            <% end %>
+          </div>
+
+        </div>
+      <%end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper-light-green text-center padded marged">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>The Petsitting you boooked</h2>
+        <% @user.orders.each do |order|%>
+          <div class="col-xs-12 col-sm-4">
+
+              <div class="card_main_index" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
+                <% if order.offer.photo.present? %>
+                  <%='http://res.cloudinary.com/doosfknzw/image/upload/' + order.offer.photo.path %>
+                <% else %>
+                  'http://static1.businessinsider.com/image/5588455c69bedd63541b9b5b-1200/wong-wanted-to-help-seibel-make-the-apartment-feel-more-inviting-we-tempered-the-architecture-finishes-of-the-loft-with-softer-furnishings-and-materials-he-told-business-insider-we-blended-their-love-of-reclaimed-wood-and-metal-with-shag-rugs-quilted-chairs-leather-and-velvet.jpg'
+                <% end %>
+              );">
+                <%= link_to(offer_path(order.offer)) do %>
+                  <h2 class="offer_main_title"><%= order.offer.title %></h2>
+                <% end %>
+                <p class="offer_main_price"><%= order.offer.price %>‎ € / day</p>
+                <p class="offer_main_category"><%= order.offer.category %>‎ sitting</p>
+              </div>
+
+          </div>
+        <%end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <div class="row wrapper-light-green padded-xsmall">
     <div class="padded-xsmall"></div>
-    <div class="col-xs-12 wrapper-light-green padded-xsmall">
-      <h2>>> Your personnal informations
+    <div class="col-xs-12  padded">
+      <h2>Your personnal informations</h2>
         <%= link_to edit_user_registration_path do %>
         <i class="fa fa-pencil"></i>
         <% end %>
-        <%= link_to edit_user_registration_path, method: :delete, data: {confirm: "Are you sure?"} do %>
-        <i class="fa fa-trash-o"></i>
-        <% end %></h2>
       </div>
-    </div>
+    </div> -->
 
-    <div class="row padded-xsmall">
-      <div class="col-xs-12 wrapper-light-green padded-xsmall">
-        <h2>>> Your offer of Petsitting</h2>
-        <% @user.offers.each do |o|%>
-        <div class="col-xs-12 col-sm-4">
 
-        <%= link_to "#" do %>
-          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
-          <% if o.photo.present? %>
-          <%='http://res.cloudinary.com/doosfknzw/image/upload/' + o.photo.path %>
-          <% else %>
-          'http://static1.businessinsider.com/image/5588455c69bedd63541b9b5b-1200/wong-wanted-to-help-seibel-make-the-apartment-feel-more-inviting-we-tempered-the-architecture-finishes-of-the-loft-with-softer-furnishings-and-materials-he-told-business-insider-we-blended-their-love-of-reclaimed-wood-and-metal-with-shag-rugs-quilted-chairs-leather-and-velvet.jpg'
-          <% end %>
-          );">
-          <p> <%= o.title %></p>
-          </div>
-        <% end %>
-        </div>
-      <%end %>
-      </div>
-    </div>
 
-    <div class="row padded-xsmall">
-      <div class="col-xs-12 wrapper-light-green padded-xsmall">
-        <h2>>> The Petsitting you boooked</h2>
-        <% @user.orders.each do |order|%>
-        <div class="col-xs-12 col-sm-4">
 
-        <%= link_to "#" do %>
-          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
-          <% if order.offer.photo.present? %>
-          <%='http://res.cloudinary.com/doosfknzw/image/upload/' + order.offer.photo.path %>
-          <% else %>
-          'http://static1.businessinsider.com/image/5588455c69bedd63541b9b5b-1200/wong-wanted-to-help-seibel-make-the-apartment-feel-more-inviting-we-tempered-the-architecture-finishes-of-the-loft-with-softer-furnishings-and-materials-he-told-business-insider-we-blended-their-love-of-reclaimed-wood-and-metal-with-shag-rugs-quilted-chairs-leather-and-velvet.jpg'
-          <% end %>
-          );">
-          <p> <%= order.offer.title %></p>
-        </div>
-        <% end %>
-      </div>
-      <%end %>
-    </div>
-
-</div>

@@ -7,7 +7,7 @@
 
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
         <div class="box">
-          <%= link_to "See all offers", offers_path %>
+
           <div class="card_main_show" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
             <% if @offer.photo.present? %>
               <%='http://res.cloudinary.com/doosfknzw/image/upload/' + @offer.photo.path %>
@@ -28,19 +28,27 @@
               <% end %>
             <% end %>
 
-           <%# link_to "Book this offer", new_offer_order_path(@offer.id) %>
-           <%= simple_form_for [@offer, @order] do |f| %>
-            <%= f.input :user_id, as: :hidden, value: current_user.id %>
-            <%= f.input :offer_id, as: :hidden, value: @offer.id %>
-            <%= f.submit "Book this offer" %>
-           <% end %>
+
 
           </div>
         </div>
         <div class="main_description">
           <p><%= @offer.description %>‎</p>
         </div>
-        <%= link_to "Request Booking", "#" %>
+        <div class="padded-small">
+          <ul class="list-inline">
+            <li>
+              <%= link_to "Back", offers_path, class: "btn btn-success" %>
+            </li>
+            <li>
+              <%= simple_form_for [@offer, @order] do |f| %>
+                <%= f.input :user_id, as: :hidden, value: current_user.id %>
+                <%= f.input :offer_id, as: :hidden, value: @offer.id %>
+                <%= f.submit "Book this offer", class: "btn btn-success" %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
