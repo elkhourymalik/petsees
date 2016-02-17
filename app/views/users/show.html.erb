@@ -19,17 +19,20 @@
     <div class="row padded-xsmall">
       <div class="col-xs-12 wrapper-light-green padded-xsmall">
         <h2>>> Your offer of Petsitting</h2>
-        <% @user.offers.each do |offer|%>
+        <% @user.offers.each do |o|%>
         <div class="col-xs-12 col-sm-4">
+
+        <%= link_to "#" do %>
           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
-          <% if offer.photo.present? %>
-          <%='http://res.cloudinary.com/doosfknzw/image/upload/' + offer.photo.path %>
+          <% if o.photo.present? %>
+          <%='http://res.cloudinary.com/doosfknzw/image/upload/' + o.photo.path %>
           <% else %>
           'http://static1.businessinsider.com/image/5588455c69bedd63541b9b5b-1200/wong-wanted-to-help-seibel-make-the-apartment-feel-more-inviting-we-tempered-the-architecture-finishes-of-the-loft-with-softer-furnishings-and-materials-he-told-business-insider-we-blended-their-love-of-reclaimed-wood-and-metal-with-shag-rugs-quilted-chairs-leather-and-velvet.jpg'
           <% end %>
           );">
-          <p> <%= offer.title %></p>
+          <p> <%= o.title %></p>
           </div>
+        <% end %>
         </div>
       <%end %>
       </div>
@@ -41,6 +44,7 @@
         <% @user.orders.each do |order|%>
         <div class="col-xs-12 col-sm-4">
 
+        <%= link_to "#" do %>
           <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
           <% if order.offer.photo.present? %>
           <%='http://res.cloudinary.com/doosfknzw/image/upload/' + order.offer.photo.path %>
@@ -50,6 +54,7 @@
           );">
           <p> <%= order.offer.title %></p>
         </div>
+        <% end %>
       </div>
       <%end %>
     </div>
