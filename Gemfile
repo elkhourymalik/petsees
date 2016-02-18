@@ -6,6 +6,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-datepicker'
 end
 
+# gem "bootstrap-datepicker-rails", :require => "bootstrap-datepicker-rails", :git => "git://github.com/Nerian/bootstrap-datepicker-rails.git"
+
 gem "gmaps4rails"
 gem "geocoder"
 
@@ -31,7 +33,6 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-
 
 group :development, :test do
   gem 'binding_of_caller'
