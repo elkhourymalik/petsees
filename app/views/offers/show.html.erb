@@ -39,12 +39,34 @@
           <ul class="list-inline">
             <% if !current_user.offers.include? @offer %>
               <li>
-                <%= simple_form_for [@offer, @order] do |f| %>
-                  <%= f.input :user_id, as: :hidden, value: current_user.id %>
-                  <%= f.input :offer_id, as: :hidden, value: @offer.id %>
-                  <%= f.submit "Book this offer", class: "btn btn-success" %>
-                <% end %>
-              </li>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                  Book this offer
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Book this offer</h4>
+                      </div>
+                      <div class="modal-body">
+                        <%= simple_form_for [@offer, @order] do |f| %>
+
+                          <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
+                          <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
+                          <%= f.input :user_id, as: :hidden, value: current_user.id %>
+                          <%= f.input :offer_id, as: :hidden, value: @offer.id %>
+                      </div>
+                      <div class="modal-footer">
+                          <%= f.submit "Book this offer", class: "btn btn-success" %>
+                        <% end %>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             <% end %>
             <li>
               <%= link_to "Back", offers_path, class: "btn btn-success" %>
@@ -63,4 +85,17 @@
       alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
     });
   <% end %>
+  <script>
+    $('.datepicker_begin').datepicker({
+      format: "yyyy/MM/dd",
+      todayHighlight: true,
+      toggleActive: true
+    });
+  ​
+    $('.datepicker_end').datepicker({
+      format: "yyyy/MM/dd",
+      todayHighlight: true,
+      toggleActive: true
+    });
+  </script>
 <% end %>
