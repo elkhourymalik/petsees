@@ -20,3 +20,14 @@ $ git commit -m "a descriptive message about your change"
 $ git push origin your-new-feature  # push YOUR branch
 # Then go to GitHub and open a pull-request
 ```
+```bash
+# In case of conflict
+$ git checkout master
+$ git pull origin master
+$ git checkout mabranche
+$ git merge master
+$ git status -> regler les conflits
+$ git add .
+$ git commit -m "c'est ouf"
+$ git push origin mabranch --> merge ok
+```
