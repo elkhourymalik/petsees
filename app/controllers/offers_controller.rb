@@ -1,7 +1,14 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
   def index
+    @category = params[:category]
+
     @offers = Offer.where.not(latitude: nil)
+
+    if @category
+      @offers = @offers.where(category: @category)
+    end
+
     @markers = Gmaps4rails.build_markers(@offers) do |offer, marker|
       marker.lat offer.latitude
       marker.lng offer.longitude
