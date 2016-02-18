@@ -1,14 +1,14 @@
 <div class="padded">
-    <div class="container text-center">
-        <div class="row">
-          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-            <div class="box-form">
-        <%= simple_form_for [@offer, @order] do |f| %>
-          <%= f.input :user_id %>
-          <%= f.input :offer_id %>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="box-form">
+          <%= simple_form_for [@offer, @order] do |f| %>
+            <%= f.input :user_id %>
+            <%= f.input :offer_id %>
 
-          <%= f.button :submit, "Add Booking", class: "btn btn-primary" %>
-        <% end %>
+            <%= f.button :submit, "Add Booking", class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>
