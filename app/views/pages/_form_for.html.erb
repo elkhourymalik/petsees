@@ -3,22 +3,27 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
 
-<form action="/offers" method="get">
-  <input type="text" placeholder="City" name="city" />
-  <select class="form-control" name="category">
-    <option>Dog</option>
-    <option>Cat</option>
-    <option>Fish</option>
-  </select>
-  <div class="input-daterange input-group">
+       <hr>
+       <form action="/offers" method="get">
+        <input type="text" class="form-control" placeholder="What is the City you looking for?" name="city" />
+      </br>
+      <select class="form-control" name="category">
+        <option value="" disabled selected>> What is your pets?</option>
+        <option>Dog</option>
+        <option>Cat</option>
+        <option>Fish</option>
+      </select>
+<!--   <div class="input-daterange input-group">
     <input type="text" class="input-sm form-control datepicker" name="start" />
     <span class="input-group-addon">to</span>
     <input type="text" class="input-sm form-control datepicker" name="end" />
-  </div>
-  <input type="submit" value="Search!">
-</form>
+  </div> -->
+      </br>
+      <hr>
+      <input type="submit" class="btn btn-danger btn-lg marged-xs" value="FILTER">
+      </form>
 
-      </div>
+     </div>
     </div>
   </div>
 </div>
@@ -28,12 +33,12 @@
 
   $(document).ready(function() {
 
-  $('.datepicker').datepicker({
+    $('.datepicker').datepicker({
       weekStart: 1,
       language: "fr",
       todayHighlight: true
-  });
+    });
   }) ;
   <% end %>
- </script>
+</script>
 
