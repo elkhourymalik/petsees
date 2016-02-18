@@ -1,16 +1,11 @@
-
-
     <div class= "text-center">
       <div class="banner">
         <h1 id="main_page_title">Welcome Pet Lovers!</h1>
-        <%= link_to "Find a sitter for your pets", offers_path, class: "btn btn-primary btn-lg marged-xs"%>
-        <%= link_to "Become a pet sitter", new_offer_path, class: "btn btn-primary btn-lg marged-xs"%>
+        <%= link_to "ALL PET SITTERS", offers_path, class: "btn btn-primary btn-lg marged-xs"%>
+        <%= link_to "BECOME PET SITTER", new_offer_path, class: "btn btn-primary btn-lg marged-xs"%>
+        <%= render 'form_for' %>
       </div>
-
-    <div>
-      <%= render 'form_for' %>
     </div>
-
 
       <div class="text-center padded-big features">
         <div class="container">
