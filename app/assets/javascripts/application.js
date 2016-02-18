@@ -9,3 +9,9 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap-datepicker
+
+$('#sandbox-container .input-daterange').datepicker({
+    weekStart: 1,
+    language: "fr",
+    todayHighlight: true
+});
