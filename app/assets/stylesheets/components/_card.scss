@@ -110,6 +110,7 @@
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
+  opacity: 1;
 }
 
 /* Body design */
@@ -193,8 +194,18 @@
 .product:hover .product-controls-hidden a { color: #E6E6E6 }
 .product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
 
-
-
+// .product-pending{
+//   background-color: #FFCC66;
+//   opacity: 0.2;
+// }
+// .product-accepted{
+//   background-color: #CCFF66;
+//   opacity: 0.2;
+// }
+// .product-refused{
+//   background-color: #FF6666;
+//   opacity: 0.2;
+// }
 
 
 
