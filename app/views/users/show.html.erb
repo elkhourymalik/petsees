@@ -1,16 +1,26 @@
 
 <div class="wrapper">
-  <div class="text-center padded">
-    <% if current_user.picture? %>
-      <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-    <% else %>
-      <%= image_tag "cat_avatar.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-    <% end %>
-    <p> <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-    <p> <%= current_user.email %> </p>
-    <%= link_to edit_user_registration_path do %>
-      <p>Modify your profile <i class="fa fa-pencil"></i></p>
-    <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <div class="text-center padded">
+          <div class="profile-card">
+            <div class="padded-down">
+              <% if current_user.picture? %>
+                <%= image_tag current_user.picture, class: "avatar-xl dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+              <% else %>
+                <%= image_tag "cat_avatar.jpg", class: "avatar-xl dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+              <% end %>
+            </div>
+            <p> <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
+            <p> <%= current_user.email %> </p>
+            <%= link_to edit_user_registration_path do %>
+              <p>Modify your profile <i class="fa fa-pencil"></i></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -59,7 +69,7 @@
           <% if order.status == "pending" %>
             <div class="col-xs-12">
               <div class="product-pending">
-                <div class="product">
+                <!-- <div class="product"> -->
                   <!-- <div class='product-upvote'>
                     <div class="product-arrow"></div>
                     <div class='product-count'>95</div>
@@ -73,11 +83,11 @@
                     <p><%= order.start_date %> - <%= order.end_date %></p>
                   </div>
                   <ul class="list-inline product-controls">
-                    <%= link_to "Accept", order_accept_path(order) %>
-                    <%= link_to "Refuse", order_refuse_path(order) %>
+                    <%= link_to "Accept", order_accept_path(order), id:"accept" %>
+                    <%= link_to "Refuse", order_refuse_path(order), id:"refuse" %>
                     <!-- <li><a href=""><i class="fa fa-star"></i></a></li> -->
                   </ul>
-                </div>
+                <!-- </div> -->
               </div>
             </div>
           <% end %>
@@ -90,7 +100,7 @@
           <% if order.status == "accepted" %>
             <div class="col-xs-12">
               <div class="product-accepted">
-                <div class="product">
+                <!-- <div class="product"> -->
                   <!-- <div class='product-upvote'>
                     <div class="product-arrow"></div>
                     <div class='product-count'>95</div>
@@ -108,7 +118,7 @@
                     <!-- <li><a href=""><i class="fa fa-star"></i></a></li> -->
                   </ul>
                 </div>
-              </div>
+              <!-- </div> -->
             </div>
           <% end %>
         <% end %>
@@ -120,7 +130,7 @@
           <% if order.status == "refused" %>
             <div class="col-xs-12">
               <div class="product-refused">
-                <div class="product">
+                <!-- <div class="product"> -->
                   <!-- <div class='product-upvote'>
                     <div class="product-arrow"></div>
                     <div class='product-count'>95</div>
@@ -138,7 +148,7 @@
                       <li><%= order.status %></li>
                     </ul>
                   </div>
-                </div>
+                <!-- </div> -->
               </div>
             </div>
           <% end %>

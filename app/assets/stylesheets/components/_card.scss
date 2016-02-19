@@ -172,7 +172,10 @@
   color: #E6E6E6;
 }
 .product-controls a:hover {
-  color: #D3473C !important
+  color: #D3473C !important;
+}
+#accept:hover{
+  color: #008000 !important;
 }
 .product-controls-hidden a {
   color: transparent;
@@ -194,20 +197,51 @@
 .product:hover .product-controls-hidden a { color: #E6E6E6 }
 .product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
 
-// .product-pending{
-//   background-color: #FFCC66;
-//   opacity: 0.2;
-// }
-// .product-accepted{
-//   background-color: #CCFF66;
-//   opacity: 0.2;
-// }
-// .product-refused{
-//   background-color: #FF6666;
-//   opacity: 0.2;
-// }
+.product-pending{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  opacity: 1;
+}
+.product-accepted{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  opacity: 1;
+}
+.product-refused{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  opacity: 1;
+}
 
 
+.product-pending:hover{
+  background-color: #FFCC66 !important;
+}
+.product-accepted:hover{
+  background-color: #CCFF66 !important;
+}
+.product-refused:hover{
+  background-color: #FF6666 !important;
+}
+
+.profile-card{
+  background: white;
+  padding: 20px;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(100,100, 100, 0.2);
+  padding: 30px;
+  font-size: 15px;
+}
 
 
 
