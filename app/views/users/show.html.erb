@@ -53,7 +53,7 @@
   <div class="container">
     <div class="row">
       <h3 class="text-center padded-xsmall">My Pet sittings</h3>
-      <h4>Pending</h4>
+      <h4 class="text-center">Pending</h4>
       <% current_user.offers.each do |offer| %>
         <% offer.orders.each do |order| %>
           <% if order.status == "pending" %>
@@ -83,7 +83,7 @@
           <% end %>
         <% end %>
       <% end %>
-      <h4>Accepted</h4>
+      <h4 class="text-center">Accepted</h4>
       <% current_user.offers.each do |offer| %>
         <% offer.orders.each do |order| %>
 
@@ -113,7 +113,7 @@
           <% end %>
         <% end %>
       <% end %>
-      <h4>Refused</h4>
+      <h4 class="text-center">Refused</h4>
       <% current_user.offers.each do |offer| %>
         <% offer.orders.each do |order| %>
 
