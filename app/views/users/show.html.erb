@@ -1,13 +1,17 @@
 
-  <div class="wrapper">
-      <div class="text-left">
-        <img class="dashboard_photo" src="<%= current_user.picture.present? ? cloudinary_url(current_user.picture.path) : asset_url('cat_avatar') %>">
-         <p> <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-         <p> <%= current_user.email %> </p>
-         <%= link_to edit_user_registration_path do %>
-    <p>Modify your profil <i class="fa fa-pencil"></i></p>
-  <% end %>
-      </div>
+<div class="wrapper">
+  <div class="text-center padded">
+    <% if current_user.picture? %>
+      <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+    <% else %>
+      <%= image_tag "cat_avatar.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+    <% end %>
+    <p> <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
+    <p> <%= current_user.email %> </p>
+    <%= link_to edit_user_registration_path do %>
+      <p>Modify your profil <i class="fa fa-pencil"></i></p>
+    <% end %>
+  </div>
 </div>
 
 <div class="wrapper-petting">
