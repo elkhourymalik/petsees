@@ -9,7 +9,7 @@
     <p> <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
     <p> <%= current_user.email %> </p>
     <%= link_to edit_user_registration_path do %>
-      <p>Modify your profil <i class="fa fa-pencil"></i></p>
+      <p>Modify your profile <i class="fa fa-pencil"></i></p>
     <% end %>
   </div>
 </div>
@@ -17,67 +17,164 @@
 <div class="wrapper-grey">
   <div class="container">
     <div class="row">
-      <h3>My Pet sittings</h3>
+      <h3 class="text-center padded-xsmall">My Reservations</h3>
+      <% current_user.orders.each do |order| %>
+      <div class="col-xs-12">
+        <div class="product">
+          <!-- <div class='product-upvote'>
+            <div class="product-arrow"></div>
+            <div class='product-count'>95</div>
+          </div> -->
+          <%= image_tag cloudinary_url(order.offer.photo.path), class:'product-image' %>
+          <div class='product-body'>
+            <p><%= order.offer.title %></p>
+            <!-- <p><%# order.offer.description %></p> -->
+            <p><%= order.offer.category %> sitting</p>
+            <p><%= order.offer.address %></p>
+            <p><%= order.offer.place_type %></p>
+            <p><%= order.offer.price %> € / day</p>
+          </div>
+          <div class="product-controls">
+            <ul class="product-right">
+              <li><%= order.start_date %></li>
+              <li><%= order.end_date %></li>
+              <li><%= order.status %></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper-grey">
+  <div class="container">
+    <div class="row">
+      <h3 class="text-center padded-xsmall">My Pet sittings</h3>
+      <h4>Pending</h4>
       <% current_user.offers.each do |offer| %>
         <% offer.orders.each do |order| %>
-          <div class="col-xs-12">
-            <div class="product">
-              <div class='product-upvote'>
-                <div class="product-arrow"></div>
-                <div class='product-count'>95</div>
+          <% if order.status == "pending" %>
+            <div class="col-xs-12">
+              <div class="product-pending">
+                <div class="product">
+                  <!-- <div class='product-upvote'>
+                    <div class="product-arrow"></div>
+                    <div class='product-count'>95</div>
+                  </div> -->
+                  <%= image_tag cloudinary_url(order.offer.photo.path), class:'product-image' %>
+                  <div class='product-body'>
+                    <p><%= order.offer.category %> sitting</p>
+                    <p><%= order.offer.address %></p>
+                    <p><%= order.offer.place_type %></p>
+                    <p><%= order.offer.price %> € / day</p>
+                    <p><%= order.start_date %> - <%= order.end_date %></p>
+                  </div>
+                  <ul class="list-inline product-controls">
+                    <%= link_to "Accept", order_accept_path(order) %>
+                    <%= link_to "Refuse", order_refuse_path(order) %>
+                    <!-- <li><a href=""><i class="fa fa-star"></i></a></li> -->
+                  </ul>
+                </div>
               </div>
-              <%= image_tag cloudinary_url(order.offer.photo.path), class:'product-image' %>
-              <div class='product-body'>
-                <p><%= order.offer.title %></p>
-                <p><%= order.offer.description %></p>
-                <p><%= order.offer.category %> sitting</p>
-                <p><%= order.offer.address %></p>
-                <p><%= order.offer.place_type %></p>
-                <p><%= order.offer.price %> € / day</p>
-                <p><%= order.start_date %></p>
-                <p><%= order.end_date %></p>
-                <p><%= order.status %></p>
-
-              </div>
-              <ul class="list-inline product-controls">
-                <%= link_to "Accept", order_accept_path(order) %>
-                <%= link_to "Refuse", order_refuse_path(order) %>
-                <!-- <li><a href=""><i class="fa fa-star"></i></a></li> -->
-              </ul>
             </div>
-          </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      <h4>Accepted</h4>
+      <% current_user.offers.each do |offer| %>
+        <% offer.orders.each do |order| %>
+
+          <% if order.status == "accepted" %>
+            <div class="col-xs-12">
+              <div class="product-accepted">
+                <div class="product">
+                  <!-- <div class='product-upvote'>
+                    <div class="product-arrow"></div>
+                    <div class='product-count'>95</div>
+                  </div> -->
+                  <%= image_tag cloudinary_url(order.offer.photo.path), class:'product-image' %>
+                  <div class='product-body'>
+                    <p><%= order.offer.category %> sitting</p>
+                    <p><%= order.offer.address %></p>
+                    <p><%= order.offer.place_type %></p>
+                    <p><%= order.offer.price %> € / day</p>
+                    <p><%= order.start_date %> - <%= order.end_date %></p>
+                  </div>
+                  <ul class="list-inline product-controls">
+                    <%= link_to "Refuse", order_refuse_path(order) %>
+                    <!-- <li><a href=""><i class="fa fa-star"></i></a></li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      <h4>Refused</h4>
+      <% current_user.offers.each do |offer| %>
+        <% offer.orders.each do |order| %>
+
+          <% if order.status == "refused" %>
+            <div class="col-xs-12">
+              <div class="product-refused">
+                <div class="product">
+                  <!-- <div class='product-upvote'>
+                    <div class="product-arrow"></div>
+                    <div class='product-count'>95</div>
+                  </div> -->
+                  <%= image_tag cloudinary_url(order.offer.photo.path), class:'product-image' %>
+                  <div class='product-body'>
+                    <p><%= order.offer.category %> sitting</p>
+                    <p><%= order.offer.address %></p>
+                    <p><%= order.offer.place_type %></p>
+                    <p><%= order.offer.price %> € / day</p>
+                    <p><%= order.start_date %> - <%= order.end_date %></p>
+                  </div>
+                  <div class="product-controls">
+                    <ul class="product-right">
+                      <li><%= order.status %></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
 
+
+
 <div class="wrapper-grey">
   <div class="container">
     <div class="row">
-      <h3>My Offers of Pet sittings</h3>
+      <h3 class="text-center padded-xsmall">My Offers of Pet sittings</h3>
       <% current_user.offers.each do |offer| %>
       <div class="col-xs-12">
         <div class="product">
-          <div class='product-upvote'>
+          <!-- <div class='product-upvote'>
             <div class="product-arrow"></div>
             <div class='product-count'>95</div>
-          </div>
+          </div> -->
           <%= image_tag cloudinary_url(offer.photo.path), class:'product-image' %>
           <div class='product-body'>
             <p><%= offer.title %></p>
-            <p><%= offer.description %></p>
+            <!-- <p><%# offer.description %></p> -->
             <p><%= offer.category %> sitting</p>
             <p><%= offer.address %></p>
             <p><%= offer.place_type %></p>
-            <p><%= offer.price %> € / day</p>
 
           </div>
-          <ul class="list-inline product-controls">
-            <%# link_to "Accept", order_accept_path(order) %>
-            <%# link_to "Refuse", order_refuse_path(order) %>
-            <!-- <li><a href=""><i class="fa fa-star"></i></a></li> -->
-          </ul>
+          <div class="product-controls">
+            <ul class="product-right">
+              <li><%= offer.price %> € / day</li>
+            </ul>
+          </div>
         </div>
       </div>
       <% end %>
@@ -85,41 +182,7 @@
   </div>
 </div>
 
-<div class="wrapper-grey">
-  <div class="container">
-    <div class="row">
-      <h3>My Reservations</h3>
-      <% current_user.orders.each do |order| %>
-      <div class="col-xs-12">
-        <div class="product">
-          <div class='product-upvote'>
-            <div class="product-arrow"></div>
-            <div class='product-count'>95</div>
-          </div>
-          <%= image_tag cloudinary_url(order.offer.photo.path), class:'product-image' %>
-          <div class='product-body'>
-            <p><%= order.offer.title %></p>
-            <p><%= order.offer.description %></p>
-            <p><%= order.offer.category %> sitting</p>
-            <p><%= order.offer.address %></p>
-            <p><%= order.offer.place_type %></p>
-            <p><%= order.offer.price %> € / day</p>
-            <p><%= order.start_date %></p>
-            <p><%= order.end_date %></p>
-            <p><%= order.status %></p>
 
-          </div>
-          <ul class="list-inline product-controls">
-            <%# link_to "Accept", order_accept_path(order) %>
-            <%# link_to "Refuse", order_refuse_path(order) %>
-            <!-- <li><a href=""><i class="fa fa-star"></i></a></li> -->
-          </ul>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-</div>
 
 
 
