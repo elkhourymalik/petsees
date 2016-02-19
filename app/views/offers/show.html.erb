@@ -53,11 +53,8 @@
                       </div>
                       <div class="modal-body">
                         <%= simple_form_for [@offer, @order] do |f| %>
-
-                          <%= f.input :start_date, as: :string, input_html: { :class => "datepicker_begin", "data-provide" => "datepicker"}, required: false %>
-                          <%= f.input :end_date, as: :string, input_html: { :class => "datepicker_end", "data-provide" => "datepicker"}, required: false %>
-                          <%= f.input :user_id, as: :hidden, value: current_user.id %>
-                          <%= f.input :offer_id, as: :hidden, value: @offer.id %>
+                          <%= f.input :start_date, as: :string, input_html: { :class => "datepicker", "data-provide" => "datepicker"}, required: true %>
+                          <%= f.input :end_date, as: :string, input_html: { :class => "datepicker", "data-provide" => "datepicker"}, required: true %>
                       </div>
                       <div class="modal-footer">
                           <%= f.submit "Book this offer", class: "btn btn-success" %>
@@ -86,16 +83,11 @@
     });
   <% end %>
   <script>
-    $('.datepicker_begin').datepicker({
-      format: "yyyy/MM/dd",
+    $('.datepicker').datepicker({
+      format: "yyyy/mm/dd",
       todayHighlight: true,
-      toggleActive: true
-    });
-  ​
-    $('.datepicker_end').datepicker({
-      format: "yyyy/MM/dd",
-      todayHighlight: true,
-      toggleActive: true
+      toggleActive: true,
+      autoclose: true
     });
   </script>
 <% end %>

@@ -5,11 +5,16 @@ Rails.application.routes.draw do
   get 'about' => "pages#about"
   get 'story' => "pages#story"
 
+
   resources :offers do
     resources :orders, only: [:new, :create]
   end
 
-  resources :orders, except: [:new, :create]
+  resources :orders, except: [:new, :create] do
+    get 'accept' => "orders#accept"
+    get 'refuse' => "orders#refuse"
+  end
+
 
   resources :users, :only => [:show]
 
