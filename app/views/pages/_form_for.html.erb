@@ -2,43 +2,18 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-
-       <hr>
-       <form action="/offers" method="get">
-        <input type="text" class="form-control" placeholder="What is the City you looking for?" name="city" />
-      </br>
-      <select class="form-control" name="category">
-        <option value="" disabled selected>> What is your pets?</option>
-        <option>Dog</option>
-        <option>Cat</option>
-        <option>Fish</option>
-      </select>
-<!--   <div class="input-daterange input-group">
-    <input type="text" class="input-sm form-control datepicker" name="start" />
-    <span class="input-group-addon">to</span>
-    <input type="text" class="input-sm form-control datepicker" name="end" />
-  </div> -->
-      </br>
-      <hr>
-      <input type="submit" class="btn btn-danger btn-lg marged-xs" value="FILTER">
-      </form>
-
-     </div>
+        <form action="/offers" method="get">
+          <select class="form-control" name="category">
+            <option value="" disabled selected>> What is your pets?</option>
+            <option>Dog</option>
+            <option>Cat</option>
+            <option>Fish</option>
+          </select>
+          <input type="submit" class="btn btn-danger btn-lg marged-xs" style= "width: 100%" value="FILTER">
+        </form>
+      </div>
     </div>
   </div>
 </div>
 
-<%= content_for(:after_js) do %>
-<script>
-
-  $(document).ready(function() {
-
-    $('.datepicker').datepicker({
-      weekStart: 1,
-      language: "fr",
-      todayHighlight: true
-    });
-  }) ;
-  <% end %>
-</script>
 
