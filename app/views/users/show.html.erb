@@ -1,57 +1,66 @@
-<div class="padded-small text-center">
-  <h1>Your Dashboard</h1>
+
+  <div class="wrapper">
+      <div class="text-left">
+        <img class="dashboard_photo" src="<%= current_user.picture.present? ? cloudinary_url(current_user.picture.path) : asset_url('cat_avatar') %>">
+         <p> <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
+         <p> <%= current_user.email %> </p>
+         <%= link_to edit_user_registration_path do %>
+    <p>Modify your profil <i class="fa fa-pencil"></i></p>
+  <% end %>
+      </div>
 </div>
 
-
-<div class= "dashboard-banner", style = "background-image: url('animals2.jpg');">
-</div>
-<!--
-<div class="wrapper-light-green text-center padded marged">
- -->  <div class="container">
-
-<div class="row">
-  <h3>My offers:</h3>
-  <% current_user.offers.each do |offer| %>
-    <div class="col-xs-12 col-md-4">
-      <div class="card"
-      style="background:
-          linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-          url('<%= offer.photo.present? ? cloudinary_url(offer.photo.path) : asset_url('normandy.jpg') %>');">
-          <div class="card-category"><%= offer.price %></div>
-            <div class="card-description">
-              <h2><%= offer.title %></h2>
-              <p><%= offer.description %></p>
+<div class="wrapper-petting">
+  <div class="container">
+    <div class="row">
+        <div class="text-center">
+          <h3> My pettings  </h3>
+          <% current_user.offers.each do |offer| %>
+            <div class="col-xs-12 col-md-4">
+              <div class="card"
+                style="background:
+                    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                    url('<%= offer.photo.present? ? cloudinary_url(offer.photo.path) : asset_url('normandy.jpg') %>');">
+                  <div class="card-category"><%= offer.price %> euros par jours</div>
+                    <div class="card-description">
+                    <h2><%= offer.title %></h2>
+                    <p><%= offer.description %></p>
+                    </div>
+                    <%= link_to "", offers_path, class: "card-link" %>
+              </div>
             </div>
-          <%= link_to "", offers_path, class: "card-link" %>
+          <% end %>
+        </div>
       </div>
     </div>
-  <% end %>
 </div>
 
-<div class="row">
-  <h3>My mission booked</h3>
-  <% current_user.orders.each do |order| %>
-    <div class="col-xs-12 col-md-4">
-      <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+<div class="wrapper-booking">
+  <div class="container">
+    <div class="row">
+    <div class="text-center"
+      <h3>My reservations </h3>
+      <% current_user.orders.each do |order| %>
+        <div class="col-xs-12 col-md-4">
+          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
       url(<%= order.offer.photo.present? ? cloudinary_url(order.offer.photo.path) : asset_url('normandy.jpg') %>);">
-        <div class="card-category"><%= order.offer.price %></div>
+           <div class="card-category">
+          <%= order.offer.price %> euros par jours
+          </div>
           <div class="card-description">
             <h2><%= order.offer.title %></h2>
             <p><%= order.offer.description %></p>
           </div>
-          <%= link_to "edit", edit_order_path(order), class: "card-link" %>
+          <%= link_to "", offers_path(order), class: "card-link" %>
+          </div>
         </div>
       </div>
-    </div>
   <% end %>
+  </div>
 </div>
 
 
-<div class="text-center">
-  <%= link_to edit_user_registration_path do %>
-    <p>Modify your personnal informations <i class="fa fa-pencil"></i></p>
-  <% end %>
-</div>
+
 
 
 
