@@ -24,3 +24,18 @@
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
 }
+
+.dashboard-banner {
+  color: white;
+  text-align: center;
+  height: 50vh;
+  // display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
+  background-size: contain;
+  position: relative;
+  justify-content: space-around;}
