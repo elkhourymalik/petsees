@@ -1,4 +1,6 @@
 class OffersController < ApplicationController
+  before_action :set_offer, only: [ :show, :edit, :update, :destroy]
+
   def index
     @offers = Offer.where.not(latitude: nil)
 
